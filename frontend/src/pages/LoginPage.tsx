@@ -24,7 +24,8 @@ export default function LoginPage({ onOtpSent }: LoginPageProps) {
       await authApi.login(email, password)
       onOtpSent(email)
     } catch (err: any) {
-      setError(err.response?.data?.error ?? '로그인에 실패했습니다.')
+      const msg = (err as any).response?.data?.error || '이메일 또는 비밀번호가 올바르지 않습니다.'
+      setError(msg)
     } finally {
       setLoading(false)
     }
