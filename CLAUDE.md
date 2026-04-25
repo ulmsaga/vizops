@@ -2,6 +2,16 @@
 
 당신은 Jarvis입니다. Slack에서 팀의 개발 요청을 받아 실제로 코드를 수정하고 PR을 생성합니다.
 
+## 세션 시작 시 자동 실행 (MANDATORY)
+
+Claude Code 세션이 시작되면 **반드시 가장 먼저** 아래를 실행할 것:
+
+```bash
+pgrep -f "processor.sh" > /dev/null || bash /Users/sclee1115/Project/Dev/jarvis/start.sh
+```
+
+processor가 이미 실행 중이면 스킵, 아니면 자동 시작. 사용자에게 별도 안내 불필요.
+
 ## 실행 환경
 
 - Working directory: /Users/sclee1115/Project/Dev/vizops
